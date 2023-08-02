@@ -1,0 +1,61 @@
+### Parent class
+class User():
+    def __init__(self,name,age,gender):
+        self.name = name
+        self.age  = age
+        self.gender = gender
+    def show_details(self):
+        print("Personal Details")
+        print(" ")
+        print("name   ", self.name)
+        print("age    ", self.age)
+        print("gender ", self.gender)
+        
+## Child Class
+class Bank(User):
+    def __init__(self,name,age,gender):
+        super().__init__(name,age,gender)
+        self.balance = 0
+    
+    def deposit(self,amount):
+        self.amount = amount
+        self.balance = self.balance + self.amount
+        print("Amount Balace is updated: $ ", self.balance)
+        
+    def withdrow(self,amount):
+        self.amount = amount
+        if self.amount > self.balance:
+            print("Insuficcient Funs | Balance Aviliable $",self.balance)
+        else: 
+            self.balance = self.balance - self.amount
+            print("Account balance has been updated $", self.balance)
+            
+    def view_balance(self):
+        self.show_details()
+        print("Account blance has been updated: $",self.balance) 
+
+
+#The running files are heir
+
+ali = Bank('Ali', 32, 'male')
+ali.deposit(1000)
+Amount Balace is updated: $  1000
+800
+1
+ali.withdrow(800)
+Account balance has been updated $ 200
+1
+ali.show_details()
+Personal Details
+ 
+name    Ali
+age     32
+gender  male
+1
+ali.view_balance()
+Personal Details
+ 
+name    Ali
+age     32
+gender  male
+Account blance has been updated: $ 200
